@@ -4,18 +4,18 @@ defmodule WaterOnMarsDetector do
     [size | input] = input
 
     size
-    |> prepare_array(input)
+    |> create_array(input)
     |> do_calc({0, 0}, %{}, size - 1)
     |> get_results(number_of_results)
   end
 
-  defp prepare_array(n, grid) do
+  defp create_array(n, grid) do
     indexes =
       for a <- 0..(n - 1),
           do: for(b <- 0..(n - 1), do: {a, b})
 
     indexes
-    |> Enum.flat_map(fn x -> x end)
+    |> Stream.flat_map(fn x -> x end)
     |> Enum.sort_by(&elem(&1, 1))
     |> Enum.zip(grid)
     |> Enum.into(%{})  
