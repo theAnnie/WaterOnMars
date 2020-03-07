@@ -28,10 +28,10 @@ defmodule WaterOnMarsDetector do
       results = Map.put(results, current, sum_values_of_neighbours(current, orginal_map))
 
       current =
-        if y == max - 1 and x != max - 1 do
-          {x + 1, 0}
+        if x == max - 1 and y != max - 1 do
+          {0, y + 1}
         else
-          {x, y + 1}
+          {x + 1, y}
         end
 
       do_calc(orginal_map, current, results, max)
@@ -55,12 +55,9 @@ defmodule WaterOnMarsDetector do
 
   defp get_results(results, number_of_results) do
     results
-    |> IO.inspect()
     |> Map.to_list()
     |> Enum.sort_by(&elem(&1, 1))
-    # |> IO.inspect()
     |> Enum.reverse()
-    # |> IO.inspect()
     |> Enum.take(number_of_results)
     |> Enum.map(fn {{x, y}, value} -> "(#{x}, #{y}, score:#{value})" end)
   end
