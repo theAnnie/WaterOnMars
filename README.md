@@ -10,13 +10,6 @@ The score is determined by adding the location's own raw water concentration val
 
 5 + 3 + 1 + 4 + 1 + 1 + 2 + 3 + 2 = 22
 
-|---|---|---|---|---|
-| 5 | 3 | 1 | 2 | 0 |
-| 4 | 1 | 1 | 3 | 2 |
-| 2 | 3 | 2 | 4 | 3 |
-| 0 | 2 | 3 | 3 | 2 |
-| 1 | 0 | 2 | 4 | 3 |
-
 When dealing with locations around the edge of the grid the score should ignore values outside the grid. For instance the score of location (0,0) is as follows:
 
 5 + 3 + 4 + 1 = 13
