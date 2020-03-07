@@ -8,7 +8,8 @@ defmodule WaterOnMarsDetector do
     array_indexes
     |> Enum.zip(grid)
     |> Enum.into(%{})
-    |> do_calc({0, 0}, %{}, size |> IO.inspect(label: "size"))
+    |> do_calc({0, 0}, %{}, size)
+    |> get_results(number_of_results)
   end
 
   defp prepare_array(n) do
@@ -50,5 +51,17 @@ defmodule WaterOnMarsDetector do
     curr_val = orginal_map |> Map.get({x, y})
 
     n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + curr_val
+  end
+
+  defp get_results(results, number_of_results) do
+    results
+    |> IO.inspect()
+    |> Map.to_list()
+    |> Enum.sort_by(&elem(&1, 1))
+    # |> IO.inspect()
+    |> Enum.reverse()
+    # |> IO.inspect()
+    |> Enum.take(number_of_results)
+    |> Enum.map(fn {{x, y}, value} -> "(#{x}, #{y}, score:#{value})" end)
   end
 end
