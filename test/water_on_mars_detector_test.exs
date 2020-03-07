@@ -15,7 +15,7 @@ defmodule WaterOnMarsDetectorTest do
 
       result = WaterOnMarsDetector.calc(input)
 
-      assert result == ["(2, 1, score:27)", "(1, 1, score:25)", "(2, 2, score:23)"]
+      assert result == ["(1, 2, score:27)", "(1, 1, score:25)", "(2, 2, score:23)"]
     end
 
     test "scenario from example" do

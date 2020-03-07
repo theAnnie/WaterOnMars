@@ -15,9 +15,10 @@ defmodule WaterOnMarsDetector do
           do: for(b <- 0..(n - 1), do: {a, b})
 
     indexes
-    |> Stream.flat_map(fn x -> x end)
-    |> Stream.zip(grid)
-    |> Enum.into(%{})
+    |> Enum.flat_map(fn x -> x end)
+    |> Enum.sort_by(&elem(&1, 1))
+    |> Enum.zip(grid)
+    |> Enum.into(%{})  
   end
 
   defp do_calc(orginal_map, {_x, _y} = current, results, max) do
