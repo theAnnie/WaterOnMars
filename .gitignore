@@ -22,3 +22,6 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 water_on_mars_detector-*.tar
 
+elixir.ls
+
+.DS_Store
